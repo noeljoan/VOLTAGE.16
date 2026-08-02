@@ -54,7 +54,7 @@ local).
 
 ## 📸 Screenshot
 
-![Dashboard](docs/screenshot.png)
+![Dashboard](screenshot.png)
 
 
 ---
