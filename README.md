@@ -52,6 +52,13 @@ local).
 
 ---
 
+## 📸 Screenshot
+
+![Dashboard](docs/screenshot.png)
+
+
+---
+
 ## 🔴 Enregistrement audio
 
 Le bouton **Enregistrer**, à côté de Lecture, capture directement le
