@@ -1,6 +1,6 @@
 # 🎛️ VOLTAGE.16
 
-Séquenceur pas à pas pour navigateur, combinant une ligne de basse de
+Séquenceur pour navigateur web, combinant une ligne de basse de
 type acid et cinq voix de percussion. L'ensemble du son est synthétisé
 en temps réel via la Web Audio API — aucun échantillon audio, aucune
 dépendance externe, aucun serveur requis.
@@ -64,8 +64,7 @@ local).
 Le bouton **Enregistrer**, à côté de Lecture, capture directement le
 signal envoyé aux haut-parleurs.
 
-1. Cliquer sur **Enregistrer** — la lecture démarre automatiquement si
-   elle n'était pas déjà en cours, et l'enregistrement commence.
+1. Cliquer sur **Enregistrer** — la lecture démarre automatiquement et l'enregistrement commence.
 2. Cliquer à nouveau (**Arrêter l'enreg.**) pour terminer.
 3. Un lien de téléchargement apparaît sous les boutons de transport,
    menant vers un fichier `.webm` prêt à être sauvegardé.
@@ -80,15 +79,15 @@ les navigateurs (Firefox et Safari en particulier).
 
 ## Architecture technique
 
-| Élément                | Détail                                                        |
-|-------------------------|-----------------------------------------------------------------|
-| 🐝 Basse                    | Oscillateur → filtre passe-bas (cutoff, résonance, enveloppe) → gain |
-| 🥁 Grosse caisse            | Oscillateur sinusoïdal, glissando de fréquence 150 Hz → 40 Hz |
-| 🎯 Caisse claire             | Bruit filtré (passe-bande) + tonalité courte                  |
-| 🔨 Charleys                 | Bruit filtré (passe-haut), durée d'extinction courte ou longue |
-| 👏 Clap                     | Trois impulsions de bruit filtré légèrement décalées           |
-| 🔨 Cadencement              | Scheduler à anticipation (lookahead), synchronisé sur l'horloge audio, pas sur `setInterval` seul |
-| 🔴  Enregistrement           | `MediaStreamAudioDestinationNode` + `MediaRecorder`             |
+| Élément                 | Détail                                                                                            |
+|-------------------------|---------------------------------------------------------------------------------------------------|
+| 🐝 Basse                | Oscillateur → filtre passe-bas (cutoff, résonance, enveloppe) → gain                              |
+| 🥁 Grosse caisse        | Oscillateur sinusoïdal, glissando de fréquence 150 Hz → 40 Hz                                     |
+| 🎯 Caisse claire        | Bruit filtré (passe-bande) + tonalité courte                                                      |
+| 🔨 Charleys             | Bruit filtré (passe-haut), durée d'extinction courte ou longue                                    |
+| 👏 Clap                 | Trois impulsions de bruit filtré légèrement décalées                                              |
+| 🔨 Cadencement          | Scheduler à anticipation (lookahead), synchronisé sur l'horloge audio, pas sur `setInterval` seul |
+| 🔴  Enregistrement      | `MediaStreamAudioDestinationNode` + `MediaRecorder`                                               |
 
 Fichier unique (`voltage16.html`), sans framework ni étape de build.
 
@@ -104,10 +103,6 @@ Fichier unique (`voltage16.html`), sans framework ni étape de build.
   principalement sous Chrome/Edge.
 
 ---
-Ce séquenceur a été écrit intégralement à partir de zéro, sans la moindre rétro-ingénierie.
-🎉
 ## Licence
 MIT – fais-en ce que tu veux. Transforme-le, réaménage-le, tout est permis.
-
-
 🎉
